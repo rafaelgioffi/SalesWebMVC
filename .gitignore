@@ -1,0 +1,11 @@
+﻿################################################################################
+# Este arquivo .gitignore foi criado automaticamente pelo Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs
+/bin/Debug/net5.0
+/obj
+/SalesWebMvc.sln
+/SalesWebMvc.csproj.user
+/SalesWebMvc.csproj
+/Program.cs
