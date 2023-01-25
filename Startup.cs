@@ -25,7 +25,7 @@ namespace SalesWebMvc
             services.AddDbContext<SalesWebMvcContext>(options =>
                     options.UseMySql(Configuration.GetConnectionString("SalesWebMvcContext"), MySqlServerVersion.LatestSupportedServerVersion));
 
-            services.AddScoped<SeedingService>();
+            services.AddScoped<SeedingService>();   //add o seedind service
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
