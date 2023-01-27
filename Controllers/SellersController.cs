@@ -1,10 +1,12 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using SalesWebMvc.Models;
 using SalesWebMvc.Services;
 
 namespace SalesWebMvc.Controllers
 {
     public class SellersController : Controller
     {
+        //dependency injection of sellerservice...
         private readonly SellerService _sellerService;
 
         public SellersController(SellerService sellerService)
@@ -12,10 +14,25 @@ namespace SalesWebMvc.Controllers
             _sellerService = sellerService;
         }
 
+        //index...
         public IActionResult Index()
         {
             var list = _sellerService.FindAll();
             return View(list);
+        }
+
+        //create...
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Create(Seller seller)
+        {
+            _sellerService.Insert(seller);
+            return RedirectToAction(nameof(Index));
         }
     }
 }
