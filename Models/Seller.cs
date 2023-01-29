@@ -8,12 +8,20 @@ namespace SalesWebMvc.Models
     public class Seller
     {
         public int Id { get; set; }
+
+        [Required]
         public string Name { get; set; }
+
+        [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
 
+        [Display(Name = "Birth Date")]
         [DataType(DataType.Date)]
+        //[DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
         public DateTime BirthDate { get; set; }
 
+        [Required]
+        [Display(Name = "Base Salary")]
         [DataType(DataType.Currency)]
         public double BaseSalary { get; set; }
         public Department Department { get; set; }
